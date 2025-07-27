@@ -24,5 +24,17 @@ graph_config={
 headers={
     "X-USER-TOKEN":token
 }
-response_graph=requests.post(url=graph_endpoint,json=graph_config,headers=headers)
-print(response_graph.text)
+# response_graph=requests.post(url=graph_endpoint,json=graph_config,headers=headers)
+# print(response_graph.text)
+graph_id="graph1"
+postpixel_endpoint=f"{graph_endpoint}/{graph_id}"
+headers_postpixel={
+    "X-USER-TOKEN":"adwaitnitinpallavi"
+}
+pixel_body={
+    "date":"20250727",
+    "quantity":"2",
+}
+
+add_pixel=requests.post(url=postpixel_endpoint,json=pixel_body,headers=headers_postpixel)
+print(add_pixel.text)
