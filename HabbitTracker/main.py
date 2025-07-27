@@ -1,5 +1,5 @@
 import requests
-
+import datetime
 
 pixela_endpoint="https://pixe.la/v1/users"
 username="adwaitdeshmukh"
@@ -31,10 +31,16 @@ postpixel_endpoint=f"{graph_endpoint}/{graph_id}"
 headers_postpixel={
     "X-USER-TOKEN":"adwaitnitinpallavi"
 }
+day=str (datetime.datetime.now().day)
+month=str(datetime.datetime.now().month)
+year=str(datetime.datetime.now().year)
+date_formated=f"{year}{month}{day}"
+
 pixel_body={
-    "date":"20250727",
+    "date":date_formated,
     "quantity":"2",
 }
 
-add_pixel=requests.post(url=postpixel_endpoint,json=pixel_body,headers=headers_postpixel)
-print(add_pixel.text)
+# add_pixel=requests.post(url=postpixel_endpoint,json=pixel_body,headers=headers_postpixel)
+# print(add_pixel.text)
+
